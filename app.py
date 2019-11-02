@@ -11,6 +11,11 @@ WIN_HEIGHT = 800
 
 GEN = 0
 
+FPS = 60
+
+WIN = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+pygame.display.set_caption("Flappy Bird")
+
 BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))),
 			 pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))),
 			 pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
@@ -22,6 +27,7 @@ BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png
 DRAW_LINES = True
 
 STAT_FONT = pygame.font.SysFont("comicsans", 50)
+
 
 
 class Bird:
@@ -297,7 +303,7 @@ def eval_genomes(genomes, config):
 
 	run = True
 	while run:
-		clock.tick(30)
+		clock.tick(FPS)
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				run = False
